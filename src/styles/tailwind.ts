@@ -1,5 +1,5 @@
 export const tailwind = {
 	colors: {
-		link: 'var(--link)',
+		link: '#539bf5',
 	},
 };

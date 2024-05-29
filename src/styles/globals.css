@@ -2,38 +2,3 @@
 @tailwind components;
 @tailwind utilities;
 @tailwind variants;
-
-:root {
-	--link: #539bf5;
-}
-
-* {
-	margin: 0;
-	padding: 0;
-	position: relative;
-	box-sizing: border-box;
-}
-
-html,
-body {
-	height: 100%;
-	width: 100%;
-}
-
-.center {
-	display: grid;
-	place-items: center;
-}
-
-.a {
-	cursor: pointer;
-	display: inline-flex;
-	align-items: center;
-
-	color: var(--link);
-	fill: var(--link);
-}
-
-.a:hover {
-	text-decoration: underline;
-}
