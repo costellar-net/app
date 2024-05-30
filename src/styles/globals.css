@@ -19,14 +19,42 @@ body {
 
 @layer components {
 	.center {
-		@apply grid place-items-center;
+		display: grid;
+		place-items: center;
 	}
 
 	.link {
-		@apply select-none cursor-pointer inline-flex items-center font-bold text-link fill-link hover:underline;
+		user-select: none;
+		cursor: pointer;
+		display: inline-flex;
+		align-items: center;
+		font-weight: bold;
+		color: theme(colors.link);
+		fill: theme(colors.link);
+
+		& :hover {
+			text-decoration: underline;
+		}
 	}
 
 	.button {
-		@apply flex items-center justify-center gap-3 bg-buttonLow border-4 border-transparent outline-2 bg-clip-padding m-1 px-5 py-2 font-black cursor-pointer rounded-xl hover:outline-buttonLow;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 0.75rem;
+		background-color: theme(colors.buttonLow);
+		border-width: 4px;
+		border-color: transparent;
+		outline-width: 2px;
+		background-clip: padding-box;
+		margin: 0.25rem;
+		padding: 1.25rem 0.5rem;
+		font-weight: 900;
+		cursor: pointer;
+		border-radius: 0.75rem;
+
+		& :hover {
+			outline: theme(colors.buttonLow);
+		}
 	}
 }
