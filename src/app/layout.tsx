@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { GoogleAnalytics, GoogleTagManager } from '@next/third-parties/google';
-import { Mukta } from 'next/font/google';
+import { PT_Sans } from 'next/font/google';
 import '@/styles/globals.css';
 
 export const metadata: Metadata = {
@@ -9,10 +9,10 @@ export const metadata: Metadata = {
 		"Elevate your online presence with Costellar. Our web development expertise combines innovation and precision to create bespoke digital solutions tailored to your needs. Let's transform your vision into a stunning reality.",
 };
 
-const font = Mukta({
+const font = PT_Sans({
 	subsets: ['latin'],
 	display: 'swap',
-	weight: ['400', '700', '800'],
+	weight: ['400', '700'],
 	fallback: ['sans-serif'],
 });
 

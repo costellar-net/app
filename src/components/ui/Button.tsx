@@ -7,6 +7,11 @@ interface P extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 	disabled?: boolean;
 }
 
+/**
+ * @title
+ * @disabled
+ * @icon
+ */
 const Button: React.FC<P> = ({ disabled, icon, className, title, ...rest }) => {
 	let styling = 'button';
 
