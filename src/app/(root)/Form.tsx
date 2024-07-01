@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { m } from 'framer-motion';
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 
 interface P {
 	setFormOpen: React.Dispatch<React.SetStateAction<boolean>>;
@@ -17,22 +17,23 @@ interface Data {
 type Contact = 'phone' | 'email';
 
 const Form: React.FC<P> = ({ setFormOpen }) => {
+	const formRef = useRef(null)
+
 	const [contact, setContact] = useState<Contact>('email');
 	const [data, setData] = useState<Data>();
 
 	const handleSubmit = (e: React.FormEvent) => {
 		e.preventDefault();
 
-		if (!data) {
+		if (!formRef.current) {
 			return;
 		}
 
-		fetch('/api/sales', {
+		const formData = new FormData(formRef.current);
+
+		fetch('https://script.google.com/macros/s/AKfycbxPbl0J_eCaGkjk59-4dLUlQcsf_SxiTgxE85K--bHhiM8bHYfUlNkP9saZ-kjY_vFi/exec', {
 			method: 'POST',
-			body: JSON.stringify({
-				name: 'John Doe',
-				email: 'john.doe@example.com',
-			}),
+			body: formData,
 		})
 			.then((response) => response.json())
 			.then((data) => {
@@ -50,6 +51,7 @@ const Form: React.FC<P> = ({ setFormOpen }) => {
 			animate={{ opacity: 1, y: 0 }}
 			exit={{ opacity: 0, y: -50 }}
 			transition={{ ease: 'anticipate', duration: 0.5 }}
+			ref={formRef}
 			className='fixed w-auto xl:w-1/2 z-10 bg-[var(--bg-low)] rounded-xl p-10 flex flex-col gap-5'>
 			<div className='flex gap-5 justify-between items-center'>
 				<h2>Let&apos;s Talk</h2>
@@ -64,21 +66,21 @@ const Form: React.FC<P> = ({ setFormOpen }) => {
 					<label className='label'>
 						Name <span className='text-red-500'>*</span>
 					</label>
-					<input className='input' type='text' placeholder='Name...' required />
+					<input className='input' type='text' name='name' placeholder='Name...' required />
 				</div>
 				<div className='flex flex-col gap-1'>
 					<label className='label'>
 						Email <span className='text-red-500'>*</span>
 					</label>
-					<input className='input' type='email' placeholder='Email...' required />
+					<input className='input' type='email' name='email' placeholder='Email...' required />
 				</div>
 				<div className='flex flex-col gap-1'>
 					<label className='label'>Phone</label>
-					<input className='input' type='text' placeholder='Phone...' />
+					<input className='input' type='text' name='phone' placeholder='Phone...' />
 				</div>
 				<div className='flex flex-col gap-1'>
 					<label className='label'>Website</label>
-					<input className='input' type='url' placeholder='Website...' />
+					<input className='input' type='url' name='site' placeholder='Website...' />
 				</div>
 			</div>
 			<div className='flex gap-5'>
