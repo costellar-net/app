@@ -6,21 +6,9 @@ interface P {
 	setFormOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-interface Data {
-	name: string;
-	email: string;
-	phone?: string;
-	website?: string;
-	contact_method: Contact;
-}
-
-type Contact = 'phone' | 'email';
-
 const Form: React.FC<P> = ({ setFormOpen }) => {
-	const formRef = useRef(null)
-
-	const [contact, setContact] = useState<Contact>('email');
-	const [data, setData] = useState<Data>();
+	const formRef = useRef(null);
+	const [preference, setPreference] = useState(false);
 
 	const handleSubmit = (e: React.FormEvent) => {
 		e.preventDefault();
@@ -31,7 +19,7 @@ const Form: React.FC<P> = ({ setFormOpen }) => {
 
 		const formData = new FormData(formRef.current);
 
-		fetch('https://script.google.com/macros/s/AKfycbxPbl0J_eCaGkjk59-4dLUlQcsf_SxiTgxE85K--bHhiM8bHYfUlNkP9saZ-kjY_vFi/exec', {
+		fetch(process.env.API_ROUTE ?? '', {
 			method: 'POST',
 			body: formData,
 		})
@@ -42,6 +30,8 @@ const Form: React.FC<P> = ({ setFormOpen }) => {
 			.catch((error) => {
 				console.error('Error submitting data:', error);
 			});
+
+		setFormOpen(false);
 	};
 
 	return (
@@ -84,11 +74,20 @@ const Form: React.FC<P> = ({ setFormOpen }) => {
 				</div>
 			</div>
 			<div className='flex gap-5'>
-				Contact me via {contact}.
-				<button type='button' aria-label='Email' className='link' onClick={() => setContact('email')}>
+				Contact me via
+				<input type='checkbox' title='use phone' checked={preference} readOnly className='hidden' />
+				<button
+					type='button'
+					aria-label='Email'
+					className={preference ? 'link' : 'font-bold'}
+					onClick={() => setPreference(false)}>
 					Email
 				</button>
-				<button type='button' aria-label='Phone' className='link' onClick={() => setContact('phone')}>
+				<button
+					type='button'
+					aria-label='Phone'
+					className={preference ? 'font-bold' : 'link'}
+					onClick={() => setPreference(true)}>
 					Phone
 				</button>
 			</div>

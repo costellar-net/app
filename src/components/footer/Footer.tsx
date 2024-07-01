@@ -46,9 +46,9 @@ const Footer: React.FC = () => {
 					<p>Modern. Fast. Awesome.</p>
 				</div>
 				<div className='flex items-align gap-10'>
-					{socials.map((social: Social, _: number) => {
+					{socials.map((social, i: number) => {
 						return (
-							<Link href={social.link} title={social.name}>
+							<Link key={i} href={social.link} title={social.name}>
 								{social.svg}
 							</Link>
 						);
