@@ -1,0 +1,34 @@
+.footer h1,
+.footer p {
+	color: var(--text-l1);
+	user-select: none;
+}
+
+.footer svg {
+	fill: var(--text-l1);
+	transition: var(--transition);
+
+	height: 50px;
+	width: 50px;
+}
+
+.footer svg:hover,
+.footer a:focus-visible svg {
+	fill: var(--text-l2);
+}
+
+.footer a,
+.footer button {
+	cursor: pointer;
+}
+
+.footer > div {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 20px;
+}
+
+.footer {
+	padding: 50px;
+}
