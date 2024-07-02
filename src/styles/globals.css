@@ -69,9 +69,11 @@ body {
 }
 
 body {
+	--accent: #b150e9;
+
 	--bg-low: #f1f1f1;
 	--bg-normal: #ffffff;
-	--bg-high: #999999;
+	--bg-high: #f5f5f7;
 
 	--text-low: #212121;
 	--text-normal: #111111;
@@ -245,8 +247,13 @@ li::before {
 
 .link {
 	cursor: pointer;
+
 	display: inline-flex;
+	gap: 5px;
+	align-items: flex-end;
+
 	color: var(--link);
+	fill: var(--link);
 }
 
 .link:hover,
@@ -312,7 +319,7 @@ li::before {
 	text-transform: uppercase;
 	font-weight: bold;
 	user-select: none;
-	color: var(--bg-high);
+	color: var(--text-low);
 }
 
 .error {

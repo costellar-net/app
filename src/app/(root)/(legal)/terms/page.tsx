@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React from 'react';
 
 const sections = [
@@ -61,7 +62,7 @@ const sections = [
 
 const Page: React.FC = () => {
 	return (
-		<div className='flex flex-col gap-2 p-[5%]'>
+		<div className='flex flex-col gap-2 p-[5%] xl:ml-[25vw] xl:max-w-[50%]'>
 			<h1>Our Terms</h1>
 			<p>
 				<strong>Last Updated:</strong> 6/28/2024
@@ -90,6 +91,11 @@ const Page: React.FC = () => {
 					</section>
 				);
 			})}
+			<div className='center w-full'>
+				<Link href='/' className='link'>
+					Return Home
+				</Link>
+			</div>
 		</div>
 	);
 };

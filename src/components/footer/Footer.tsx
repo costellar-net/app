@@ -18,7 +18,7 @@ const socials: Social[] = [
 		),
 	},
 	{
-		link: 'https://instagram.com/costellarllc',
+		link: 'https://www.instagram.com/costellarcompany/',
 		name: 'Instagram',
 		svg: (
 			<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'>
@@ -27,7 +27,7 @@ const socials: Social[] = [
 		),
 	},
 	{
-		link: 'https://tiktok.com/@costellarllc',
+		link: 'https://www.tiktok.com/@costellarweb',
 		name: 'TikTok',
 		svg: (
 			<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'>

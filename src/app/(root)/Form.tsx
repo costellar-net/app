@@ -19,6 +19,8 @@ const Form: React.FC<P> = ({ setFormOpen }) => {
 
 		const formData = new FormData(formRef.current);
 
+		formData.set('use phone', String(preference));
+
 		fetch(process.env.API_ROUTE ?? '', {
 			method: 'POST',
 			body: formData,
@@ -42,7 +44,7 @@ const Form: React.FC<P> = ({ setFormOpen }) => {
 			exit={{ opacity: 0, y: -50 }}
 			transition={{ ease: 'anticipate', duration: 0.5 }}
 			ref={formRef}
-			className='fixed w-auto xl:w-1/2 z-10 bg-[var(--bg-low)] rounded-xl p-10 flex flex-col gap-5'>
+			className='fixed w-auto xl:w-1/2 z-20 bg-[var(--bg-normal)] shadow-2xl rounded-xl p-10 flex flex-col gap-5'>
 			<div className='flex gap-5 justify-between items-center'>
 				<h2>Let&apos;s Talk</h2>
 				<button type='button' className='icon' aria-label='Close' onClick={() => setFormOpen(false)}>
@@ -73,30 +75,35 @@ const Form: React.FC<P> = ({ setFormOpen }) => {
 					<input className='input' type='url' name='site' placeholder='Website...' />
 				</div>
 			</div>
-			<div className='flex gap-5'>
-				Contact me via
-				<input type='checkbox' title='use phone' checked={preference} readOnly className='hidden' />
-				<button
-					type='button'
-					aria-label='Email'
-					className={preference ? 'link' : 'font-bold'}
-					onClick={() => setPreference(false)}>
-					Email
-				</button>
-				<button
-					type='button'
-					aria-label='Phone'
-					className={preference ? 'font-bold' : 'link'}
-					onClick={() => setPreference(true)}>
-					Phone
-				</button>
-			</div>
-			<div>
-				We value your{' '}
-				<Link href='/privacy' className='link' target='_blank'>
-					privacy
-				</Link>
-				.
+			<div className='flex gap-5 justify-between items-center'>
+				<div className='flex gap-5'>
+					Contact me via
+					<input type='checkbox' title='use phone' checked={preference} readOnly className='hidden' />
+					<button
+						type='button'
+						aria-label='Email'
+						className={preference ? 'link' : 'font-bold cursor-default'}
+						onClick={() => setPreference(false)}>
+						Email
+					</button>
+					<button
+						type='button'
+						aria-label='Phone'
+						className={preference ? 'font-bold cursor-default' : 'link'}
+						onClick={() => setPreference(true)}>
+						Phone
+					</button>
+				</div>
+				<div>
+					We value your{' '}
+					<Link href='/privacy' className='link' target='_blank'>
+						privacy
+						<svg xmlns='http://www.w3.org/2000/svg' height='16px' width='16px' viewBox='0 -960 960 960'>
+							<path d='M212-86q-53 0-89.5-36.5T86-212v-536q0-53 36.5-89.5T212-874h205q26 0 44.5 18.5T480-811q0 26-18.5 44.5T417-748H212v536h536v-205q0-26 18.5-44.5T811-480q26 0 44.5 18.5T874-417v205q0 53-36.5 89.5T748-86H212Zm536-575L462-375q-18 18-43 17.5T376-376q-18-18-18-43.5t18-43.5l285-285h-38q-26 0-44.5-18.5T560-811q0-26 18.5-44.5T623-874h188q26 0 44.5 18.5T874-811v188q0 26-18.5 44.5T811-560q-26 0-44.5-18.5T748-623v-38Z' />
+						</svg>
+					</Link>
+					.
+				</div>
 			</div>
 			<button className='button justify-center'>All done</button>
 		</m.form>
