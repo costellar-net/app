@@ -12,29 +12,32 @@ const Form: React.FC<P> = ({ setFormOpen }) => {
 
 	const handleSubmit = (e: React.FormEvent) => {
 		e.preventDefault();
-
+	
 		if (!formRef.current) {
 			return;
 		}
-
+	
 		const formData = new FormData(formRef.current);
-
-		formData.set('use phone', String(preference));
-
-		fetch(process.env.API_ROUTE ?? '', {
+		formData.set('use_phone', String(preference));
+	
+		fetch('https://script.google.com/macros/s/AKfycbxPbl0J_eCaGkjk59-4dLUlQcsf_SxiTgxE85K--bHhiM8bHYfUlNkP9saZ-kjY_vFi/exec', {
 			method: 'POST',
 			body: formData,
 		})
-			.then((response) => response.json())
-			.then((data) => {
-				console.log('Data submission response:', data);
-			})
-			.catch((error) => {
-				console.error('Error submitting data:', error);
-			});
-
+		.then((response) => {
+			if (!response.ok) throw new Error('Network response was not ok');
+			return response.json();
+		})
+		.then((data) => {
+			console.log('Data submission response:', data);    
+		})
+		.catch((error) => {
+			console.error('Error submitting data:', error);
+		});
+	
 		setFormOpen(false);
 	};
+	
 
 	return (
 		<m.form
@@ -78,7 +81,7 @@ const Form: React.FC<P> = ({ setFormOpen }) => {
 			<div className='flex gap-5 justify-between items-center'>
 				<div className='flex gap-5'>
 					Contact me via
-					<input type='checkbox' title='use phone' checked={preference} readOnly className='hidden' />
+					<input type='checkbox' title='use_phone' checked={preference} readOnly className='hidden' />
 					<button
 						type='button'
 						aria-label='Email'
