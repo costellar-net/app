@@ -7,13 +7,15 @@ import Footer from '@/components/footer/Footer';
 import Image from 'next/image';
 import header_background from '/public/moon.jpg';
 
+export type FormStatus = 'Closed' | 'Open' | 'Loading' | 'Success' | 'Error';
+
 const Page: React.FC = () => {
-	const [formOpen, setFormOpen] = useState(false);
+	const [form, setForm] = useState<FormStatus>('Closed');
 
 	return (
 		<div className='size-full center'>
 			<div className='h-full pl-[2vw] md:pl-0 w-full center'>
-				<AnimatePresence>{formOpen && <Form setFormOpen={setFormOpen} />}</AnimatePresence>
+				<AnimatePresence>{form != 'Closed' && <Form formStatus={form} setForm={setForm} />}</AnimatePresence>
 				<div className='h-screen w-screen center bg-black text-white'>
 					<Image
 						className='object-cover size-full absolute'
@@ -26,7 +28,7 @@ const Page: React.FC = () => {
 					<div className='text-center flex flex-col items-center gap-5 opacity-90'>
 						<h1>Modern. Fast. Awesome.</h1>
 						<h3>Modern websites should be the standard.</h3>
-						<button className='button' aria-label='Form' onClick={() => setFormOpen((prev) => !prev)}>
+						<button className='button' aria-label='Form' onClick={() => setForm('Open')}>
 							Get a quote
 						</button>
 					</div>

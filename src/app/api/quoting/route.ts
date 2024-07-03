@@ -6,5 +6,5 @@ export async function POST(req: Request) {
 
 	const data = await res.json();
 
-	return Response.json(data.result);
+	return Response.json({ result: data.result });
 }
