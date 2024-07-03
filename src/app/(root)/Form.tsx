@@ -12,32 +12,21 @@ const Form: React.FC<P> = ({ setFormOpen }) => {
 
 	const handleSubmit = (e: React.FormEvent) => {
 		e.preventDefault();
-	
+
 		if (!formRef.current) {
 			return;
 		}
-	
+
 		const formData = new FormData(formRef.current);
 		formData.set('use_phone', String(preference));
-	
-		fetch('https://script.google.com/macros/s/AKfycbxPbl0J_eCaGkjk59-4dLUlQcsf_SxiTgxE85K--bHhiM8bHYfUlNkP9saZ-kjY_vFi/exec', {
+
+		fetch('/api/quoting', {
 			method: 'POST',
 			body: formData,
-		})
-		.then((response) => {
-			if (!response.ok) throw new Error('Network response was not ok');
-			return response.json();
-		})
-		.then((data) => {
-			console.log('Data submission response:', data);    
-		})
-		.catch((error) => {
-			console.error('Error submitting data:', error);
 		});
-	
+
 		setFormOpen(false);
 	};
-	
 
 	return (
 		<m.form
