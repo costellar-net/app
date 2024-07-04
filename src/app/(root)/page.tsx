@@ -14,7 +14,7 @@ const Page: React.FC = () => {
 	const [form, setForm] = useState<FormStatus>('Closed');
 
 	return (
-		<div className='size-full center'>
+		<div className='size-full center flex flex-col flex-grow'>
 			<AnimatePresence>{form != 'Closed' && <Form formStatus={form} setForm={setForm} />}</AnimatePresence>
 			<Hero setForm={setForm} />
 			<Sections setForm={setForm} />

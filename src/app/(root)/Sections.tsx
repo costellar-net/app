@@ -2,10 +2,23 @@ import React from 'react';
 import type { FormStatus } from './page';
 import { m } from 'framer-motion';
 import Grid from './Grid';
+import Marquee from 'react-fast-marquee';
 
 interface P {
 	setForm: React.Dispatch<React.SetStateAction<FormStatus>>;
 }
+
+// const marquee = [
+// 	{
+// 		name: 'ok',
+// 	},
+// 	{
+// 		name: 'yeh',
+// 	},
+// 	{
+// 		name: 'no',
+// 	},
+// ];
 
 const Sections: React.FC<P> = ({ setForm }) => {
 	return (
@@ -18,6 +31,25 @@ const Sections: React.FC<P> = ({ setForm }) => {
 					className='flex flex-col gap-5 text-center'>
 					<h1>Why us?</h1>
 					<h3>You tell us what you want, and we&apos;ll make you exactly that.</h3>
+					{/* <div className='w-screen max-w-full mt-10'>
+						<Marquee
+							autoFill
+							// style={{
+							// 	maskImage:
+							// 		'linear-gradient(to right, rgba(0, 0, 0, 0) 15%, rgb(0, 0, 0) 50%, rgb(0, 0, 0) 50%, rgba(0, 0, 0, 0) 85%)',
+							// }}
+						>
+							{marquee.map((item, i) => {
+								return (
+									<div
+										key={i}
+										className='cursor-pointer transition-colors bg-[var(--bg-high)] hover:bg-[var(--border-low)] px-20 py-10 mx-5 rounded-xl'>
+										{item.name}
+									</div>
+								);
+							})}
+						</Marquee>
+					</div> */}
 				</m.div>
 			</div>
 
