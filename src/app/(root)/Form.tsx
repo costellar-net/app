@@ -95,14 +95,14 @@ const Form: React.FC<P> = ({ setForm, formStatus }) => {
 							<button
 								type='button'
 								aria-label='Email'
-								className={preference ? 'anchor' : 'font-bold cursor-default'}
+								className={preference ? 'font-bold': 'anchor cursor-default'}
 								onClick={() => setPreference(false)}>
 								Email
 							</button>
 							<button
 								type='button'
 								aria-label='Phone'
-								className={preference ? 'font-bold cursor-default' : 'anchor'}
+								className={preference ? 'anchor cursor-default' : 'font-bold' }
 								onClick={() => setPreference(true)}>
 								Phone
 							</button>
