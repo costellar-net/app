@@ -13,7 +13,7 @@ import Sections from './Sections';
 export type FormStatus = 'Closed' | 'Open' | 'Loading' | 'Success' | 'Error';
 
 const Page: React.FC = () => {
-	const [form, setForm] = useState<FormStatus>('Open');
+	const [form, setForm] = useState<FormStatus>('Closed');
 
 	return (
 		<div className='size-full center'>
