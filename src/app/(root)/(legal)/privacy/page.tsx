@@ -1,3 +1,5 @@
+import Email from '@/components/contact/Email';
+import Phone from '@/components/contact/Phone';
 import Link from 'next/link';
 import React from 'react';
 
@@ -28,8 +30,14 @@ const sections = [
 	},
 	{
 		title: 'Your Rights',
-		content:
-			'You have the right to request details of the personal information we hold about you. If you would like a copy of the information held on you, please contact us at costellarcontact@gmail.com. If you believe that any information we are holding on you is incorrect or incomplete, please email us as soon as possible at the above address. We will promptly correct any information found to be incorrect.',
+		content: (
+			<>
+				You have the right to request details of the personal information we hold about you. If you would like a copy of the
+				information held on you, please contact us at <Email />. If you believe that any information we are holding on you is
+				incorrect or incomplete, please email us as soon as possible at the above address. We will promptly correct any
+				information found to be incorrect.
+			</>
+		),
 	},
 	{
 		title: 'Changes to This Privacy Statement',
@@ -38,8 +46,12 @@ const sections = [
 	},
 	{
 		title: 'Contact Us',
-		content:
-			'If you have any questions or concerns about our Privacy Statement or the handling of your personal information, please contact us at: costellarcontact@gmail.com',
+		content: (
+			<>
+				If you have any questions or concerns about our Privacy Statement or the handling of your personal information, please
+				contact us at: <Email /> or <Phone />
+			</>
+		),
 	},
 ];
 

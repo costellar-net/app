@@ -1,5 +1,7 @@
 import Link from 'next/link';
 import styles from './footer.module.css';
+import Email from '../contact/Email';
+import Phone from '../contact/Phone';
 
 interface Social {
 	name: string;
@@ -54,6 +56,10 @@ const Footer: React.FC = () => {
 						);
 					})}
 				</div>
+
+				<p>
+					Contact us at <Email /> or <Phone />.
+				</p>
 			</div>
 		</div>
 	);

@@ -39,12 +39,12 @@
 
 ::-webkit-scrollbar-thumb {
 	border: 6px solid var(--bg-normal);
-	background-color: var(--button-color);
+	background-color: var(--border-low);
 	border-radius: var(--border-radius);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-	background-color: var(--button-color);
+	background-color: var(--border-high);
 }
 
 /* regular */
@@ -70,20 +70,26 @@ body {
 
 body {
 	--accent: #b150e9;
+	--space: #0a0b0e;
 
 	--bg-low: #f1f1f1;
 	--bg-normal: #ffffff;
-	--bg-high: #f5f5f7;
+	--bg-high: #f2f2f3;
 
 	--text-low: #212121;
 	--text-normal: #111111;
 	--text-high: #000000;
 
 	--shadow: rgba(50, 50, 93, 0.1) 0px 13px 27px -5px, rgba(0, 0, 0, 0.1) 0px 8px 16px -8px;
-	--button-color: #00000033;
+
+	--border-low: #00000033;
+	--border-high: #00000055;
+
+	--highlight-low: #b150e9;
+	--highlight-high: #a03bdb;
 
 	--disabled: #aaaaaa;
-	--muted: color-mix(in srgb, var(--color, var(--bg-normal)) 75%, #fff0);
+	--muted: color-mix(in srgb, var(--color, var(--bg-normal)) 75%, transparent);
 
 	color: var(--text-normal);
 	fill: var(--text-normal);
@@ -164,7 +170,7 @@ li::before {
 
 .hr {
 	margin: 15px 0;
-	border: 1px solid var(--button-color);
+	border: 1px solid var(--highlight-low);
 }
 
 .input {
@@ -175,7 +181,7 @@ li::before {
 	resize: none;
 
 	background-color: transparent;
-	border: 2px solid var(--button-color);
+	border: 2px solid var(--border-low);
 	border-radius: var(--border-radius);
 
 	color: var(--text-normal);
@@ -197,7 +203,7 @@ li::before {
 	align-items: center;
 	gap: 10px;
 
-	background-color: var(--button-color);
+	background-color: var(--color, var(--border-low));
 	border: 3px solid transparent;
 	outline: 3px solid transparent;
 	background-clip: padding-box;
@@ -217,17 +223,13 @@ li::before {
 	transition: var(--transition);
 }
 
-.button:focus {
-	background-color: var(--button-color);
-	outline: 3px solid transparent;
-}
-
 .button:hover {
-	outline: 3px solid var(--color, var(--button-color));
+	background-color: var(--color, var(--border-high));
+	outline: 3px solid var(--color, var(--border-high));
 }
 
 .button:focus-visible {
-	background-color: var(--button-color);
+	background-color: var(--color, var(--border-high));
 	outline: 3px solid var(--link);
 }
 
@@ -269,12 +271,12 @@ li::before {
 	padding: 10px;
 	cursor: pointer;
 	backdrop-filter: blur(20px);
-	background-color: var(--button-color);
+	background-color: var(--border-low);
 }
 
 .icon:hover,
 .icon:focus-visible {
-	background-color: var(--button-color);
+	background-color: var(--border-high);
 }
 
 .icon:focus-visible {
@@ -289,16 +291,14 @@ li::before {
 
 	transition: var(--transition);
 
-	padding: 0 10px;
-	border-radius: var(--border-radius);
-	background-color: var(--muted);
+	padding: 5px 10px;
+	border-radius: 10px;
 
-	fill: var(--link);
-	color: var(--link);
+	background-color: var(--border-low);
 }
 
 .anchor:hover {
-	background-color: var(--bg-normal);
+	background-color: var(--border-high);
 }
 
 .disabled {
@@ -314,6 +314,15 @@ li::before {
 }
 
 /* text */
+
+.glow {
+	user-select: none;
+
+	background: var(--color);
+	background-clip: text;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
 
 .label {
 	text-transform: uppercase;

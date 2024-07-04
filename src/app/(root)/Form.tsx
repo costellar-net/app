@@ -89,20 +89,20 @@ const Form: React.FC<P> = ({ setForm, formStatus }) => {
 						</div>
 					</div>
 					<div className='flex gap-5 justify-between items-center'>
-						<div className='flex gap-5'>
+						<div className='flex gap-5 items-center'>
 							Contact me via
 							<input type='checkbox' title='use_phone' checked={preference} readOnly className='hidden' />
 							<button
 								type='button'
 								aria-label='Email'
-								className={preference ? 'link' : 'font-bold cursor-default'}
+								className={preference ? 'anchor' : 'font-bold cursor-default'}
 								onClick={() => setPreference(false)}>
 								Email
 							</button>
 							<button
 								type='button'
 								aria-label='Phone'
-								className={preference ? 'font-bold cursor-default' : 'link'}
+								className={preference ? 'font-bold cursor-default' : 'anchor'}
 								onClick={() => setPreference(true)}>
 								Phone
 							</button>

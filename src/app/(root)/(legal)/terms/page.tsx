@@ -68,8 +68,8 @@ const Page: React.FC = () => {
 				<strong>Last Updated:</strong> 6/28/2024
 			</p>
 			<p>
-				Welcome to Costellar (“Company,” “we,” “our,” “us”). Please read these Terms of Service (“Terms,” “Terms of Service”)
-				carefully before using our website production services (the “Service”).
+				Welcome to Costellar ("Company," "we," "our," "us"). Please read these Terms of Service ("Terms," "Terms of Service")
+				carefully before using our website production services (the "Service").
 			</p>
 			<p>
 				By accessing or using the Service, you agree to be bound by these Terms. If you do not agree with any part of the
