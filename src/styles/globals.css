@@ -15,6 +15,29 @@
 
 	--font-mono: 'Roboto Mono', ui-monospace, monospace;
 
+	--accent: #b150e9;
+	--space: #0a0b0e;
+
+	--bg-low: #f1f1f1;
+	--bg-normal: #ffffff;
+	--bg-high: #f2f2f3;
+
+	--text-low: #212121;
+	--text-normal: #111111;
+	--text-high: #000000;
+
+	--shadow: rgba(50, 50, 93, 0.1) 0px 13px 27px -5px, rgba(0, 0, 0, 0.1) 0px 8px 16px -8px;
+
+	--border-low: #00000033;
+	--border-high: #00000055;
+
+	--highlight-low: #b150e9;
+	--highlight-high: #a03bdb;
+
+	--disabled: #aaaaaa;
+	--muted: color-mix(in srgb, var(--color, var(--bg-normal)) 75%, transparent);
+
+	color-scheme: light dark;
 	font-size: 16px;
 	line-height: 1;
 	font-weight: 400;
@@ -25,8 +48,6 @@
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	-webkit-text-size-adjust: 100%;
-
-	color-scheme: light dark;
 }
 
 ::-webkit-scrollbar {
@@ -69,28 +90,6 @@ body {
 }
 
 body {
-	--accent: #b150e9;
-	--space: #0a0b0e;
-
-	--bg-low: #f1f1f1;
-	--bg-normal: #ffffff;
-	--bg-high: #f2f2f3;
-
-	--text-low: #212121;
-	--text-normal: #111111;
-	--text-high: #000000;
-
-	--shadow: rgba(50, 50, 93, 0.1) 0px 13px 27px -5px, rgba(0, 0, 0, 0.1) 0px 8px 16px -8px;
-
-	--border-low: #00000033;
-	--border-high: #00000055;
-
-	--highlight-low: #b150e9;
-	--highlight-high: #a03bdb;
-
-	--disabled: #aaaaaa;
-	--muted: color-mix(in srgb, var(--color, var(--bg-normal)) 75%, transparent);
-
 	color: var(--text-normal);
 	fill: var(--text-normal);
 
