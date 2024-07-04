@@ -1,5 +1,7 @@
 import React from 'react';
 import type { FormStatus } from './page';
+import { m } from 'framer-motion';
+import Grid from './Grid';
 
 interface P {
 	setForm: React.Dispatch<React.SetStateAction<FormStatus>>;
@@ -8,16 +10,25 @@ interface P {
 const Sections: React.FC<P> = ({ setForm }) => {
 	return (
 		<>
-			<div className='w-screen h-screen center'>
-				<div className='flex flex-col gap-5 text-center'>
-					<h1>The Special.</h1>
+			<div className='w-full h-screen center'>
+				<m.div
+					initial={{ opacity: 0, scale: 0.75 }}
+					whileInView={{ opacity: 1, scale: 1 }}
+					transition={{ type: 'spring', duration: 0.7 }}
+					className='flex flex-col gap-5 text-center'>
+					<h1>Why us?</h1>
 					<h3>You tell us what you want, and we&apos;ll make you exactly that.</h3>
-				</div>
+				</m.div>
 			</div>
-			<div className='w-screen h-screen center'>
-				<div className='p-[5%] size-11/12 center bg-[var(--bg-high)] rounded-3xl'>
+
+			<div className='w-full h-screen center'>
+				<m.div
+					initial={{ opacity: 0, scale: 0.75 }}
+					whileInView={{ opacity: 1, scale: 1 }}
+					transition={{ type: 'spring', duration: 0.7 }}
+					className='p-[5%] size-11/12 center bg-[var(--bg-high)] rounded-3xl'>
 					<div className='flex flex-col gap-5'>
-						<h1>Reach for the stars.</h1>
+						<h1>Reach for the Stars.</h1>
 						<h3>Our extremely optimized SEO and project speeds will get you to customers in no time.</h3>
 						<div className='p-[5%] flex flex-col gap-6'>
 							<div className='flex gap-5 items-center'>
@@ -51,23 +62,52 @@ const Sections: React.FC<P> = ({ setForm }) => {
 									className='w-8 h-8'>
 									<path d='M535-504v-116q0-23.38-15.81-39.19Q503.38-675 480-675q-23.37 0-39.19 15.81Q425-643.38 425-620v136q0 13 4.5 24.07T443-440l116 116q16 16 38 16t39-16q17-16 17-39t-17-40L535-504ZM480-46q-91 0-169.99-34.08-78.98-34.09-137.41-92.52-58.43-58.43-92.52-137.41Q46-389 46-480q0-91 34.08-169.99 34.09-78.98 92.52-137.41 58.43-58.43 137.41-92.52Q389-914 480-914q91 0 169.99 34.08 78.98 34.09 137.41 92.52 58.43 58.43 92.52 137.41Q914-571 914-480q0 91-34.08 169.99-34.09 78.98-92.52 137.41-58.43 58.43-137.41 92.52Q571-46 480-46Z' />
 								</svg>
-								<h3>We&apos;ll get it done in under a week</h3>
+								<h3>We&apos;ll get it done in a week</h3>
 							</div>
 						</div>
 					</div>
-				</div>
+				</m.div>
 			</div>
-			<div className='w-screen h-screen center bg-[var(--space)] text-[var(--bg-high)]'>
-				<div className='flex flex-col gap-5 items-center'>
-					<h1>Talk to us today.</h1>
-					<button
-						className='button'
-						aria-label='Form'
-						onClick={() => setForm('Open')}
-						style={{ '--color': 'var(--accent)' } as React.CSSProperties}>
-						Get a quote
-					</button>
-				</div>
+
+			<div className='w-full h-screen center'>
+				<m.div
+					initial={{ opacity: 0, scale: 0.75 }}
+					whileInView={{ opacity: 1, scale: 1 }}
+					transition={{ type: 'spring', duration: 0.7 }}
+					className='flex flex-col gap-5 text-center'>
+					<h1>What&apos;s Included?</h1>
+					<Grid />
+				</m.div>
+			</div>
+
+			<div className='w-full h-screen center'>
+				<m.div
+					initial={{ opacity: 0, scale: 0.75 }}
+					whileInView={{ opacity: 1, scale: 1 }}
+					transition={{ type: 'spring', duration: 0.7 }}
+					className='p-[5%] size-11/12 center bg-[var(--space)] text-[var(--bg-high)] rounded-3xl overflow-hidden'>
+					<video
+						className='object-cover size-full absolute'
+						style={{
+							maskImage: 'linear-gradient(to right, #0006 5%, #000 20%, #000 80%, #0006 95%)',
+						}}
+						playsInline
+						autoPlay
+						muted
+						loop
+						src='/galaxy.mp4'
+					/>
+					<div className='flex flex-col gap-10 items-center'>
+						<h1>Talk to us today.</h1>
+						<button
+							className='button'
+							aria-label='Form'
+							onClick={() => setForm('Open')}
+							style={{ '--color': 'var(--accent)' } as React.CSSProperties}>
+							Get a quote
+						</button>
+					</div>
+				</m.div>
 			</div>
 		</>
 	);

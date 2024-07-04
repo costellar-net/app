@@ -57,7 +57,7 @@ const Footer: React.FC = () => {
 					})}
 				</div>
 
-				<p>
+				<p className='text-center'>
 					Contact us at <Email /> or <Phone />.
 				</p>
 			</div>

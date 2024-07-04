@@ -1,9 +1,11 @@
 import Link from 'next/link';
 
+const email = 'contact@costellar.net';
+
 const Email: React.FC = () => {
 	return (
-		<Link href={`mailto:${process.env.NEXT_PUBLIC_CONTACT_EMAIL}`} className='link'>
-			{process.env.NEXT_PUBLIC_CONTACT_EMAIL}
+		<Link href={`mailto:${email}`} className='link'>
+			{email}
 		</Link>
 	);
 };
