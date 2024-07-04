@@ -8,6 +8,9 @@ const items = [
 		name: 'Responsive UI',
 	},
 	{
+		name: 'Accessibility',
+	},
+	{
 		name: 'Source Code',
 	},
 	{
