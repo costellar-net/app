@@ -7,7 +7,7 @@ const sections = [
 	{
 		title: 'Information Collection',
 		content: 'We collect the following personal information when you contact us in a sale:',
-		list: ['Name', 'Email Address', 'Phone (Optional)', 'Website (Optional)'],
+		list: ['Name', 'Email Address', 'Contact Preference',  'Phone (Optional)', 'Website (Optional)'],
 	},
 	{
 		title: 'Use of Information',
@@ -15,13 +15,12 @@ const sections = [
 		list: [
 			'To contact you regarding our products and services',
 			'To facilitate sales and provide customer support',
-			'To keep you informed about updates, promotions, and offers related to our products and services',
 		],
 	},
 	{
-		title: 'Data Protection',
+		title: 'Data Liability',
 		content:
-			'We are committed to ensuring that your information is secure. To prevent unauthorized access or disclosure, we have put in place suitable physical, electronic, and managerial procedures to safeguard and secure the information we collect.',
+			'While we take every precaution to protect your information, we cannot guarantee the security of data transmitted over the internet. You accept the inherent risks of providing information online and will not hold us liable for any breach of security.',
 	},
 	{
 		title: 'No Selling of Information',
@@ -42,7 +41,7 @@ const sections = [
 	{
 		title: 'Changes to This Privacy Statement',
 		content:
-			'We may update this Privacy Statement from time to time. Any changes will be posted on this page, and we will notify you of any significant changes by email or through our website.',
+			'We may update this Privacy Statement from time to time. Your continued use of our services after any such changes constitutes your acceptance of the new terms.',
 	},
 	{
 		title: 'Contact Us',
@@ -60,7 +59,7 @@ const Page: React.FC = () => {
 		<div className='flex flex-col gap-2 p-[5%] xl:ml-[25vw] xl:max-w-[50%]'>
 			<h1>Your Privacy</h1>
 			<p>
-				<strong>Last Updated:</strong> 6/28/2024
+				<strong>Last Updated:</strong> 7/4/2024
 			</p>
 			<p>
 				At Costellar, we are committed to protecting your privacy and ensuring that your personal information is handled in a
