@@ -53,7 +53,7 @@ const Sections: React.FC<P> = ({ setForm }) => {
 				</m.div>
 			</div>
 
-			<div className='w-full h-screen center'>
+			<div className='w-full h-[50vh] center'>
 				<m.div
 					initial={{ opacity: 0, scale: 0.75 }}
 					whileInView={{ opacity: 1, scale: 1 }}

@@ -8,6 +8,31 @@ export const metadata: Metadata = {
 	title: 'Costellar: Exceptional Web Solutions for Your Digital Success',
 	description:
 		"Elevate your online presence with Costellar. Our web development expertise combines innovation and precision to create bespoke digital solutions tailored to your needs. Let's transform your vision into a stunning reality.",
+	keywords: [
+		'website',
+		'software development',
+		'web application',
+		'custom',
+		'react',
+		'next',
+		'nextjs',
+		'tailwind',
+		'wordpress',
+		'full stack',
+		'developer',
+		'freelance',
+		'modern',
+		'fast',
+		'seo',
+		'optimized',
+		'e-commerce store',
+		'ui/ux',
+		'database',
+		'ai',
+		'html javascript typescript css',
+		'front-end back-end',
+		'quality',
+	],
 };
 
 const font = PT_Sans({
