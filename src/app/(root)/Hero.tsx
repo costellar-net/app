@@ -1,5 +1,6 @@
 import React from 'react';
 import type { FormStatus } from './page';
+import { m } from 'framer-motion';
 
 interface P {
 	setForm: React.Dispatch<React.SetStateAction<FormStatus>>;
@@ -19,9 +20,9 @@ const Hero: React.FC<P> = ({ setForm }) => {
 				loop
 				src='/blackhole.mp4'
 			/>
-			<div className='text-center flex flex-col items-center gap-5 opacity-90'>
-				<h1 className='opacity-90'>Modern. Fast. Awesome.</h1>
-				<h3 className='opacity-90'>Modern websites should be the standard.</h3>
+			<div className='text-center flex flex-col items-center gap-5 opacity-90 px-[5%]'>
+				<h1 className='opacity-90 font-bold text-8xl'>Modern. Fast. Awesome.</h1>
+				<h2 className='opacity-90 text-3xl'>Pull clients in.</h2>
 				<button
 					className='button'
 					aria-label='Form'

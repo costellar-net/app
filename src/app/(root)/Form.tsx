@@ -54,10 +54,10 @@ const Form: React.FC<P> = ({ setForm, formStatus }) => {
 			ref={formRef}
 			className='fixed w-auto xl:w-1/2 z-20 bg-[var(--bg-normal)] shadow-2xl rounded-xl p-10 flex flex-col gap-5'>
 			<div className='flex gap-5 justify-between items-center'>
-				{formStatus === 'Open' && <h2>Let&apos;s talk</h2>}
-				{formStatus === 'Success' && <h2>Thank you</h2>}
-				{formStatus === 'Error' && <h2>Sorry</h2>}
-				{formStatus === 'Loading' && <h2>Loading</h2>}
+				{formStatus === 'Open' && <p className='text-5xl font-bold'>Let&apos;s talk</p>}
+				{formStatus === 'Success' && <p className='text-5xl font-bold'>Thank you</p>}
+				{formStatus === 'Error' && <p className='text-5xl font-bold'>Sorry</p>}
+				{formStatus === 'Loading' && <p className='text-5xl font-bold'>Loading</p>}
 				<button type='button' className='icon' aria-label='Close' onClick={() => setForm('Closed')}>
 					<svg xmlns='http://www.w3.org/2000/svg' height='24px' viewBox='0 -960 960 960' width='24px'>
 						<path d='M480-392 300-212q-18 18-44 18t-44-18q-18-18-18-44t18-44l180-180-180-180q-18-18-18-44t18-44q18-18 44-18t44 18l180 180 180-180q18-18 44-18t44 18q18 18 18 44t-18 44L568-480l180 180q18 18 18 44t-18 44q-18 18-44 18t-44-18L480-392Z' />
@@ -95,14 +95,14 @@ const Form: React.FC<P> = ({ setForm, formStatus }) => {
 							<button
 								type='button'
 								aria-label='Email'
-								className={preference ? '': 'anchor hover:bg-[var(--border-low)] font-bold cursor-default'}
+								className={preference ? '' : 'anchor hover:bg-[var(--border-low)] font-bold cursor-default'}
 								onClick={() => setPreference(false)}>
 								Email
 							</button>
 							<button
 								type='button'
 								aria-label='Phone'
-								className={preference ? 'anchor hover:bg-[var(--border-low)] cursor-default font-bold' : '' }
+								className={preference ? 'anchor hover:bg-[var(--border-low)] cursor-default font-bold' : ''}
 								onClick={() => setPreference(true)}>
 								Phone
 							</button>

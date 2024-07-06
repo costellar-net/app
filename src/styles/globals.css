@@ -102,21 +102,6 @@ body {
 	overflow-y: scroll;
 }
 
-h1 {
-	font-size: 5em;
-	font-weight: bold;
-}
-
-h2 {
-	font-size: 3em;
-	font-weight: bold;
-}
-
-h3 {
-	font-size: 2em;
-	font-weight: normal;
-}
-
 /* reset */
 
 a {

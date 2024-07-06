@@ -48,8 +48,8 @@ const Grid: React.FC = () => {
 			{items.map((item, i) => {
 				return (
 					<div className='flex gap-5 items-center justify-between bg-[var(--bg-high)] p-5 rounded-xl' key={i}>
-						<h3>{item.name}</h3>
-						<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 -960 960 960' className='w-8 h-8'>
+						<h3 className='text-2xl'>{item.name}</h3>
+						<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 -960 960 960' className='w-8 h-8 fill-green-600'>
 							{item.icon_path ? (
 								item.icon_path
 							) : (
