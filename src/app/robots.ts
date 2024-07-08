@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
 			userAgent: '*',
 			allow: '/',
 		},
-		sitemap: 'https://costellar.com/sitemap.xml',
+		sitemap: 'https://costellar.net/sitemap.xml',
 	};
 }
