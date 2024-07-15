@@ -14,7 +14,10 @@ const items = [
 		name: 'Source Code',
 	},
 	{
-		name: 'Focus on SEO and Speed',
+		name: 'SEO and Speed',
+	},
+	{
+		name: '95+ Lighthouse',
 	},
 	{
 		name: 'Revisions',
@@ -44,7 +47,7 @@ const items = [
 
 const Grid: React.FC = () => {
 	return (
-		<div className='mt-10 grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 gap-5 scale-75 sm:scale-100'>
+		<div className='mt-10 grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 gap-5 scale-100'>
 			{items.map((item, i) => {
 				return (
 					<div className='flex gap-5 items-center justify-between bg-[var(--bg-high)] p-5 rounded-xl' key={i}>

@@ -1,69 +1,69 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import type { FormStatus } from './page';
-import { m } from 'framer-motion';
+import { AnimatePresence, m } from 'framer-motion';
 import Grid from './Grid';
-// import Marquee from 'react-fast-marquee';
 
 interface P {
 	setForm: React.Dispatch<React.SetStateAction<FormStatus>>;
 }
 
-// const marquee = [
-// 	{
-// 		name: 'ok',
-// 	},
-// 	{
-// 		name: 'yeh',
-// 	},
-// 	{
-// 		name: 'no',
-// 	},
-// ];
+const words = [
+	{
+		name: 'Beautiful',
+		start: '#1e99e6',
+		stop: '#0068a7',
+	},
+	{
+		name: 'Blazingly Fast',
+		start: '#e915bb',
+		stop: '#8c26b4',
+	},
+	{
+		name: 'No-BS',
+		start: '#f9bd52',
+		stop: '#ff230d',
+	},
+	{
+		name: 'Done in a Week',
+		start: '#a9c2fd',
+		stop: '#ee8a93',
+	},
+];
 
 const Sections: React.FC<P> = ({ setForm }) => {
+	const [index, setIndex] = useState(0);
+	const duration = 3;
+
+	useEffect(() => {
+		const tick = () => {
+			setIndex((prevIndex) => (prevIndex + 1) % words.length);
+		};
+		const timer = setInterval(tick, duration * 1000);
+		return () => clearInterval(timer);
+	}, []);
+
 	return (
 		<>
-			{/* <div className='px-1 py-20 w-full center'>
+			<div className='px-1 py-20 w-full flex justify-center items-center'>
 				<m.div
 					initial={{ opacity: 0, scale: 0.75 }}
 					whileInView={{ opacity: 1, scale: 1 }}
 					transition={{ type: 'spring', duration: 0.7 }}
-					className='flex flex-col gap-5 text-center'>
-					<p className='text-5xl font-bold'>Why us?</p>
-					<div className='w-screen max-w-full mt-10'>
-						<Marquee
-							autoFill
-							// style={{
-							// 	maskImage:
-							// 		'linear-gradient(to right, rgba(0, 0, 0, 0) 15%, rgb(0, 0, 0) 50%, rgb(0, 0, 0) 50%, rgba(0, 0, 0, 0) 85%)',
-							// }}
-						>
-							{marquee.map((item, i) => {
-								return (
-									<div
-										key={i}
-										className='cursor-pointer transition-colors bg-[var(--bg-high)] hover:bg-[var(--border-low)] px-20 py-10 mx-5 rounded-xl'>
-										{item.name}
-									</div>
-								);
-							})}
-						</Marquee>
-					</div>
-				</m.div>
-			</div> */}
-
-			<div className='px-1 py-20 w-full center'>
-				<m.div
-					initial={{ opacity: 0, scale: 0.75 }}
-					whileInView={{ opacity: 1, scale: 1 }}
-					transition={{ type: 'spring', duration: 0.7 }}
-					className='p-[5%] mx-[5%] center bg-[var(--bg-high)] rounded-3xl'>
-					<div className='flex flex-col gap-5'>
-						<h3 className='text-5xl font-bold'>Reach for the Stars.</h3>
-						<h2 className='text-3xl'>
-							Our extremely optimized SEO and project speeds will get you to customers in no time.
-						</h2>
-						<div className='p-[5%] flex flex-col gap-6'>
+					className='p-[5%] sm:mx-[5%] center bg-[var(--bg-high)] rounded-3xl sm:w-3/4'>
+					<div className='flex flex-col gap-5 text-center'>
+						<p className='text-4xl lg:text-7xl font-bold'>Finally a website that&apos;s {''}</p>
+						<AnimatePresence mode='wait'>
+							<m.p
+								key={index}
+								initial={{ opacity: 0, scale: 1.5 }}
+								animate={{ opacity: 1, scale: 1 }}
+								exit={{ opacity: 0, scale: 0.5 }}
+								className='text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold glow !leading-tight'
+								style={{ '--start': words[index].start, '--stop': words[index].stop } as React.CSSProperties}>
+								{words[index].name}.
+							</m.p>
+						</AnimatePresence>
+						{/* <div className='p-[5%] flex flex-col gap-6'>
 							<div className='flex gap-5 items-center'>
 								<svg
 									xmlns='http://www.w3.org/2000/svg'
@@ -97,7 +97,7 @@ const Sections: React.FC<P> = ({ setForm }) => {
 								</svg>
 								<h2 className='text-3xl'>We&apos;ll get it done in a week</h2>
 							</div>
-						</div>
+						</div> */}
 					</div>
 				</m.div>
 			</div>
@@ -131,12 +131,12 @@ const Sections: React.FC<P> = ({ setForm }) => {
 						src='/galaxy.mp4'
 					/>
 					<div className='flex flex-col gap-10 items-center'>
-						<p className='text-5xl font-bold'>What&apos;s the price?</p>
+						<p className='text-5xl font-bold text-center'>What&apos;s the price?</p>
 						<button
 							className='button'
 							aria-label='Form'
 							onClick={() => setForm('Open')}
-							style={{ '--color': 'var(--accent)' } as React.CSSProperties}>
+							style={{ '--color': 'var(--accent-opacity)' } as React.CSSProperties}>
 							Talk Today
 						</button>
 					</div>

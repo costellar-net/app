@@ -16,6 +16,8 @@
 	--font-mono: 'Roboto Mono', ui-monospace, monospace;
 
 	--accent: #b150e9;
+	--accent-dark: color-mix(in srgb, var(--accent) 75%, #000);
+	--accent-opacity: color-mix(in srgb, var(--accent) var(--amount, 50%), transparent);
 	--space: #0a0b0e;
 
 	--bg-low: #f1f1f1;
@@ -302,7 +304,7 @@ li::before {
 .glow {
 	user-select: none;
 
-	background: var(--color);
+	background: linear-gradient(115deg, var(--start), var(--stop));
 	background-clip: text;
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
@@ -343,10 +345,4 @@ li::before {
 
 	background-color: var(--text-normal);
 	color: var(--bg-normal);
-}
-
-@media only screen and (max-width: 700px) {
-	h1 {
-		font-size: 2em;
-	}
 }
