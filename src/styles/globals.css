@@ -50,6 +50,7 @@
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	-webkit-text-size-adjust: 100%;
+	scroll-padding: 0;
 }
 
 ::-webkit-scrollbar {
@@ -141,6 +142,7 @@ button {
 	font-size: inherit;
 	color: inherit;
 	user-select: none;
+	cursor: default;
 }
 
 li::before {
@@ -155,7 +157,6 @@ li::before {
 }
 
 .hr {
-	margin: 5px 0;
 	border: 1px solid var(--border-low);
 }
 
@@ -183,8 +184,6 @@ li::before {
 /* buttons */
 
 .button {
-	position: relative;
-
 	display: flex;
 	align-items: center;
 	gap: 10px;
@@ -270,21 +269,31 @@ li::before {
 }
 
 .anchor {
-	vertical-align: bottom;
-	display: inline-flex;
+	display: flex;
 	align-items: center;
-	gap: 10px;
 
-	transition: var(--transition);
+	gap: 20px;
+	padding: 5px 15px;
 
-	padding: 5px 10px;
-	border-radius: 10px;
+	color: var(--text-low);
+	fill: var(--text-low);
+	cursor: pointer;
 
-	background-color: var(--border-low);
+	@apply rounded-xl;
+	@apply transition-all;
 }
 
-.anchor:hover {
-	background-color: var(--border-high);
+.anchor:hover,
+.anchor:focus-visible {
+	background-color: var(--color, var(--border-low));
+	color: var(--text-normal);
+	fill: var(--text-normal);
+}
+
+.anchor:focus-visible {
+	outline: var(--focus);
+	color: var(--text-normal);
+	fill: var(--text-normal);
 }
 
 .disabled {
@@ -345,4 +354,16 @@ li::before {
 
 	background-color: var(--text-normal);
 	color: var(--bg-normal);
+}
+
+@keyframes bg_gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
 }

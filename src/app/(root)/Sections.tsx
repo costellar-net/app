@@ -1,11 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import type { FormStatus } from './page';
 import { AnimatePresence, m } from 'framer-motion';
 import Grid from './Grid';
-
-interface P {
-	setForm: React.Dispatch<React.SetStateAction<FormStatus>>;
-}
+import Link from 'next/link';
 
 const words = [
 	{
@@ -30,9 +26,9 @@ const words = [
 	},
 ];
 
-const Sections: React.FC<P> = ({ setForm }) => {
+const Sections: React.FC = () => {
 	const [index, setIndex] = useState(0);
-	const duration = 3;
+	const duration = 2;
 
 	useEffect(() => {
 		const tick = () => {
@@ -132,13 +128,13 @@ const Sections: React.FC<P> = ({ setForm }) => {
 					/>
 					<div className='flex flex-col gap-10 items-center'>
 						<p className='text-5xl font-bold text-center'>What&apos;s the price?</p>
-						<button
+						<Link
 							className='button'
 							aria-label='Form'
-							onClick={() => setForm('Open')}
+							href='/quoting'
 							style={{ '--color': 'var(--accent-opacity)' } as React.CSSProperties}>
 							Talk Today
-						</button>
+						</Link>
 					</div>
 				</m.div>
 			</div>

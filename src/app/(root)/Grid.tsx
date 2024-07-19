@@ -1,67 +1,35 @@
+import Link from 'next/link';
 import React from 'react';
-
-const items = [
-	{
-		name: 'Design Customization',
-	},
-	{
-		name: 'Responsive UI',
-	},
-	{
-		name: 'Accessibility',
-	},
-	{
-		name: 'Source Code',
-	},
-	{
-		name: 'SEO and Speed',
-	},
-	{
-		name: '95+ Lighthouse',
-	},
-	{
-		name: 'Revisions',
-		icon_path: (
-			<path d='M520-280q44 0 69.5-25.5T615-375v-45q0-26-17-43t-43-17q26 0 43-17t17-43v-45q0-44-25.5-69.5T520-680H392q-20 0-33.5 13.5T345-633q0 20 14 34t34 14h127v65h-55q-17 0-28.5 11.5T425-480q0 17 11.5 28.5T465-440h55v65H392q-20 0-33.5 13.5T345-328q0 20 14 34t34 14h127ZM212-86q-53 0-89.5-36.5T86-212v-536q0-53 36.5-89.5T212-874h536q53 0 89.5 36.5T874-748v536q0 53-36.5 89.5T748-86H212Z' />
-		),
-	},
-	{
-		name: 'Price',
-		icon_path: (
-			<path d='M800-86q-131 0-259-57T307-305Q201-411 144-539.5T87-799q0-32 21-53.5t53-21.5h161q37 0 60 18t31 52l25 119q6 31-.5 53T411-593l-103 90q16 26 37.5 52.5T396-396q26 26 50 45.5t48 33.5l101-98q20-19 44.5-25.5t53.5-.5l111 25q35 10 52.5 31t17.5 55v169q0 32-21.5 53.5T800-86Z' />
-		),
-	},
-	{
-		name: 'Tech stack',
-		icon_path: (
-			<path d='M800-86q-131 0-259-57T307-305Q201-411 144-539.5T87-799q0-32 21-53.5t53-21.5h161q37 0 60 18t31 52l25 119q6 31-.5 53T411-593l-103 90q16 26 37.5 52.5T396-396q26 26 50 45.5t48 33.5l101-98q20-19 44.5-25.5t53.5-.5l111 25q35 10 52.5 31t17.5 55v169q0 32-21.5 53.5T800-86Z' />
-		),
-	},
-	{
-		name: 'API or Database Integration',
-		icon_path: (
-			<path d='M800-86q-131 0-259-57T307-305Q201-411 144-539.5T87-799q0-32 21-53.5t53-21.5h161q37 0 60 18t31 52l25 119q6 31-.5 53T411-593l-103 90q16 26 37.5 52.5T396-396q26 26 50 45.5t48 33.5l101-98q20-19 44.5-25.5t53.5-.5l111 25q35 10 52.5 31t17.5 55v169q0 32-21.5 53.5T800-86Z' />
-		),
-	},
-];
+import { features } from './(Navigatable)/features/page';
 
 const Grid: React.FC = () => {
 	return (
 		<div className='mt-10 grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 gap-5 scale-100'>
-			{items.map((item, i) => {
+			{features.map((item, i) => {
 				return (
 					<div className='flex gap-5 items-center justify-between bg-[var(--bg-high)] p-5 rounded-xl' key={i}>
 						<h3 className='text-2xl'>{item.name}</h3>
-						<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 -960 960 960' className='w-8 h-8 fill-green-600'>
-							{item.icon_path ? (
-								item.icon_path
-							) : (
+						{item.icon ? (
+							React.cloneElement(item.icon, {
+								className: 'size-8 fill-green-600',
+							})
+						) : (
+							<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 -960 960 960' className='size-8 fill-green-600'>
 								<path d='m421-443-60-60q-17-17-42-17t-42 17q-17 17-16.5 42t17.5 42l98 98q19.36 19 45.18 19T466-321l211-211q17-17 17-41.5T677-615q-17-17-42-17t-42 17L421-443Zm59 397q-91 0-169.99-34.08-78.98-34.09-137.41-92.52-58.43-58.43-92.52-137.41Q46-389 46-480q0-91 34.08-169.99 34.09-78.98 92.52-137.41 58.43-58.43 137.41-92.52Q389-914 480-914q91 0 169.99 34.08 78.98 34.09 137.41 92.52 58.43 58.43 92.52 137.41Q914-571 914-480q0 91-34.08 169.99-34.09 78.98-92.52 137.41-58.43 58.43-137.41 92.52Q571-46 480-46Z' />
-							)}
-						</svg>
+							</svg>
+						)}
 					</div>
 				);
 			})}
+			<Link
+				href='/features'
+				title='See All'
+				className='flex gap-5 items-center justify-between bg-[var(--bg-high)] p-5 rounded-xl hover:bg-[var(--border-low)] focus-visible:bg-[var(--border-low)] transition-all'>
+				<p className='text-[var(--link)] text-2xl'>See All</p>
+				<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 -960 960 960' className='size-8 fill-[var(--link)]'>
+					<path d='M592-417H189q-26 0-44.5-18.5T126-480q0-26 18.5-44.5T189-543h403L435-700q-19-19-19-45t19-45q19-18 45-18t45 19l264 264q9 9 14 21t5 24q0 12-5 24t-14 21L524-170q-19 19-44.5 19T435-170q-19-19-19-45t19-45l157-157Z' />
+				</svg>
+			</Link>
 		</div>
 	);
 };

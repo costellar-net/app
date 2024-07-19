@@ -1,14 +1,10 @@
 import React from 'react';
-import type { FormStatus } from './page';
-
-interface P {
-	setForm: React.Dispatch<React.SetStateAction<FormStatus>>;
-}
+import Link from 'next/link';
 
 // const words = ['Stellar Performance.', 'Modern. Fast. Awesome.', 'Pull clients in.', 'Where performance meets price.'];
 // const random = Math.floor(Math.random() * words.length);
 
-const Hero: React.FC<P> = ({ setForm }) => {
+const Hero: React.FC = () => {
 	return (
 		<div className='h-screen w-full center bg-black text-white'>
 			<video
@@ -25,13 +21,13 @@ const Hero: React.FC<P> = ({ setForm }) => {
 			<div className='text-center flex flex-col items-center gap-5 px-[5%]'>
 				<h1 className='opacity-90 font-bold text-5xl md:text-8xl'>Modern. Fast. Awesome.</h1>
 				<h2 className='opacity-90 text-xl'>Don&apos;t waste your time making a website, we&apos;ll do it all for you.</h2>
-				<button
+				<Link
 					className='button'
 					aria-label='Form'
-					onClick={() => setForm('Open')}
+					href='/quoting'
 					style={{ '--color': 'var(--accent-opacity)' } as React.CSSProperties}>
 					Get a quote
-				</button>
+				</Link>
 			</div>
 		</div>
 	);
