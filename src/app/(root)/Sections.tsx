@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useEffect, useState } from 'react';
 import { AnimatePresence, m } from 'framer-motion';
 import Grid from './Grid';

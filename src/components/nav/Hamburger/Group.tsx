@@ -23,7 +23,7 @@ const Group: React.FC<P> = ({ data, setHamburgerOpen }) => {
 			<button title={data.title} onClick={() => setOpen((prev) => !prev)} className='anchor !p-5 !gap-5 justify-between'>
 				<div>
 					{data.icon}
-					<p className={`text-3xl ${open ? 'text-[var(--text-normal)]' : ''}`}>{data.title}</p>
+					<p className={clsx('text-3xl', open && 'text-[var(--text-normal)]')}>{data.title}</p>
 				</div>
 				<svg
 					xmlns='http://www.w3.org/2000/svg'
@@ -45,6 +45,7 @@ const Group: React.FC<P> = ({ data, setHamburgerOpen }) => {
 									<button title={item.title} onClick={item.callback} className='anchor'>
 										{item.icon &&
 											React.cloneElement(item.icon, {
+												key: item.title,
 												className: 'size-10 sm:size-12',
 											})}
 										<div>
@@ -81,7 +82,7 @@ const Group: React.FC<P> = ({ data, setHamburgerOpen }) => {
 							);
 						}
 
-						return <p>Error</p>;
+						return <p key={i}>Error</p>;
 					})}
 				</div>
 			)}

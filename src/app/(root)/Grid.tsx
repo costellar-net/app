@@ -1,6 +1,6 @@
+import { features } from '@/lib/features';
 import Link from 'next/link';
 import React from 'react';
-import { features } from './(Navigatable)/features/page';
 
 const Grid: React.FC = () => {
 	return (
