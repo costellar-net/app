@@ -1,19 +1,16 @@
 import React from 'react';
-
-import Sections from './Sections';
-import Hero from './Hero';
 import Footer from '@/components/footer/Footer';
 import Nav from '@/components/nav/Nav';
 
-const Page: React.FC = () => {
+const Layout = ({ children }: { children: React.ReactNode }) => {
 	return (
 		<>
 			<Nav />
-			<Hero />
-			<Sections />
+			<div className='h-[5%]' />
+			{children}
 			<Footer />
 		</>
 	);
 };
 
-export default Page;
+export default Layout;

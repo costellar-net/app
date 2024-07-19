@@ -3,6 +3,7 @@ import { GoogleAnalytics, GoogleTagManager } from '@next/third-parties/google';
 import { PT_Sans } from 'next/font/google';
 import '@/styles/globals.css';
 import Animations from '@/lib/animations/lazy';
+import { InfoProvider } from '@/providers/Info';
 
 export const metadata: Metadata = {
 	title: 'Costellar: Exceptional Web Solutions for Your Digital Success',
@@ -35,6 +36,23 @@ const font = PT_Sans({
 	fallback: ['sans-serif'],
 });
 
+const schema = {
+	'@context': 'http://schema.org',
+	'@type': 'Organization',
+	name: 'Costellar Web Design',
+	url: 'https://costellar.net',
+	logo: 'https://costellar.net/favicon.ico',
+	sameAs: ['https://x.com/costellarllc', 'https://www.instagram.com/costellarcompany', 'https://www.tiktok.com/@costellarweb'],
+	contactPoint: {
+		'@type': 'ContactPoint',
+		telephone: '+1-716-427-4280',
+		email: 'contact@costellar.net',
+		contactType: 'Customer Service',
+		areaServed: 'US',
+		availableLanguage: 'English',
+	},
+};
+
 export default function RootLayout({
 	children,
 }: Readonly<{
@@ -43,7 +61,10 @@ export default function RootLayout({
 	return (
 		<html lang='en'>
 			<body className={font.className}>
-				<Animations>{children}</Animations>
+				<InfoProvider>
+					<Animations>{children}</Animations>
+				</InfoProvider>
+				<script type='application/ld+json' dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
 			</body>
 			<GoogleAnalytics gaId='G-K4S7R15KTF' />
 			<GoogleTagManager gtmId='GTM-PKNRCX57' />

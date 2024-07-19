@@ -1,11 +1,15 @@
-import Link from 'next/link';
+'use client';
 
-const phone = '(716) 427-4280';
+import { InfoContext } from '@/providers/Info';
+import Link from 'next/link';
+import { useContext } from 'react';
 
 const Phone: React.FC = () => {
+	const { info } = useContext(InfoContext);
+
 	return (
-		<Link href={`tel:${phone}}`} className='link'>
-			{phone}
+		<Link href={`tel:${info.contact.phone}}`} className='link'>
+			{info.contact.phone}
 		</Link>
 	);
 };
