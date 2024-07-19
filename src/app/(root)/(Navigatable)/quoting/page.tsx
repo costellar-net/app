@@ -29,19 +29,14 @@ const Page: React.FC = () => {
 	);
 
 	const handleSubmit = async () => {
-		const formData = new FormData();
-
-		formData.set('name', form_data.name ?? '');
-		formData.set('email', form_data.email ?? '');
-		formData.set('phone', form_data.phone ?? '');
-		formData.set('site', form_data.website ?? '');
-		formData.set('use_phone', String(form_data.use_phone));
-
 		setForm('Loading');
 
 		const res = await fetch('/api/quoting', {
 			method: 'POST',
-			body: formData,
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify(form_data),
 		});
 
 		switch (res.status) {
@@ -79,8 +74,6 @@ const Page: React.FC = () => {
 						className='max-w-[70%] sm:max-w-none transition-all text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl bg-inherit border-b-4 border-solid border-[var(--border-low)] focus:border-0 focus:border-b-4 focus:border-solid focus:border-[var(--link)] placeholder:text-[var(--border-low)]'
 						type='email'
 						placeholder="What's your email..."
-						required
-						defaultValue={form_data.email ?? ''}
 					/>
 					{next_button}
 				</div>
@@ -95,8 +88,6 @@ const Page: React.FC = () => {
 					className='max-w-[70%] sm:max-w-none transition-all text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl bg-inherit border-b-4 border-solid border-[var(--border-low)] focus:border-0 focus:border-b-4 focus:border-solid focus:border-[var(--link)] placeholder:text-[var(--border-low)]'
 					type='text'
 					placeholder="What's your phone..."
-					required
-					defaultValue={form_data.phone ?? ''}
 				/>
 				{next_button}
 			</div>
@@ -113,8 +104,6 @@ const Page: React.FC = () => {
 						className='max-w-[70%] sm:max-w-none transition-all text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl bg-inherit border-b-4 border-solid border-[var(--border-low)] focus:border-0 focus:border-b-4 focus:border-solid focus:border-[var(--link)] placeholder:text-[var(--border-low)]'
 						type='url'
 						placeholder='A website?'
-						required
-						defaultValue={form_data.website ?? ''}
 					/>
 
 					{next_button}
