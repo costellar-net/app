@@ -24,3 +24,5 @@ See [costellar.net](https://costellar.net) or:
 -  `npm run dev`
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+NOTICE: ALTHOUGH ALL CODE IN THIS PROJECT IS OPEN SOURCE, ATTEMPTS TO IMPERSONATE COSTELLAR WILL BE PROSECUTED TO THE FULLEST EXTENT OF THE LAW 
