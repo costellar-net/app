@@ -34,7 +34,7 @@ const Page: React.FC = () => {
 				<p className='text-center text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold'>
 					We&apos;ll do it all for you
 				</p>
-				<p className='text-center text-5xl'>In under a week</p>
+				<p className='text-center text-5xl'>In under a month</p>
 				<Link
 					className='button'
 					aria-label='Form'
