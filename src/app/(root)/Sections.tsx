@@ -22,7 +22,7 @@ const words = [
 		stop: '#ff230d',
 	},
 	{
-		name: 'Done in a Week',
+		name: 'Done in a Month',
 		start: '#a9c2fd',
 		stop: '#ee8a93',
 	},
