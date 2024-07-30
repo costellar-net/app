@@ -45,7 +45,7 @@ const Group: React.FC<P> = ({ data }) => {
 					onMouseLeave={() => setOpen(false)}
 					initial={{ opacity: 0, y: -20 }}
 					animate={{ opacity: 1, y: 0 }}
-					className='absolute top-full left-0 w-[200%] grid grid-flow-row gap-5 rounded-xl bg-[var(--bg-low)] z-10 p-2 shadow-xl'>
+					className='absolute top-full left-0 w-fit min-w-[250px] grid grid-flow-row gap-5 rounded-xl bg-[var(--bg-low)] z-10 p-2 shadow-xl'>
 					{data.items.map((item, i) => {
 						if (item.callback) {
 							return (
